@@ -6,15 +6,14 @@ import kotlin.math.round
 
 var count = 0;
 val inputReader = Scanner(System.`in`)
-val decimal = BigDecimal(3.53185).setScale(2,RoundingMode.HALF_EVEN)
 
 while (count < 100){
     println("Enter number of decimal places: ")
     var n = readLine();
     if(isValidNumber(n)){
-        val number = n?.toInt()!!
-        if (isWithInRange(n)){
-            println(BigDecimal(PI).setScale(number,RoundingMode.HALF_EVEN))
+        val number_of_decimal_places = n?.toInt()!!
+        if (isWithInRange(number_of_decimal_places)){
+            println(BigDecimal(PI).setScale(number_of_decimal_places,RoundingMode.HALF_EVEN))
         }
         else{
             println("The entered number is out of range\nPlease enter a number between 0 and 10")
@@ -39,17 +38,11 @@ fun isValidNumber(input: String?): Boolean{
     return false
 }
 
-fun isWithInRange(input: String?): Boolean{
-    if(input != null){
-        if(input.toInt() >= 0 && input.toInt() <= 10){
-            return true
-        }
-        else{
-            return false
-        }
+fun isWithInRange(input: Int): Boolean{
+    if(input.toInt() >= 0 && input.toInt() <= 10){
+        return true
     }
-    return false
+    else{
+        return false
+    }
 }
-
-
-
