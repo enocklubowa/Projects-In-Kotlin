@@ -6,7 +6,6 @@ while (count < 100){
     if(isValidInput(input)){
         var number = input?.toInt()!!
         var allFactors = getAllFactors(number)
-        //println(allFactors)
         println(extractPrimeFactors(allFactors))
     }
     count++
@@ -26,13 +25,13 @@ fun getAllFactors(input: Int): MutableSet<Int>{
 }
 
 fun extractPrimeFactors(factors: MutableSet<Int>): MutableSet<Int>{
-    val iterator = factors.iterator()
-    while (iterator.hasNext()){
-        if(getAllFactors(iterator.next()).size > 0){
-            factors.remove(iterator.next())
+    val primeFactors = mutableSetOf<Int>()
+    for (factor in factors){
+        if(getAllFactors(factor).size == 0){
+            primeFactors.add(factor)
         }
     }
-    return factors
+    return primeFactors
 }
 
 fun isValidInput(input: String?): Boolean{
