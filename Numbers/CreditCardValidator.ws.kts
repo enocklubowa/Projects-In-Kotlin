@@ -1,3 +1,6 @@
+/*
+Using Luhn algorithm
+ */
 var cardNumber = "79927398713"
 val numberList = mutableListOf<Int>()
 for(character in cardNumber){
